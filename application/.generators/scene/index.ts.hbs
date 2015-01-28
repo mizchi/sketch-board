@@ -1,0 +1,9 @@
+import Aggregator = require('./aggregator');
+import subscriber = require('./subscriber');
+
+export = {{classify $1}};
+class {{classify $1}} extends Overworld.Context {
+  static component = require('../../components/{{$1}}');
+  static aggregator = new Aggregator;
+  static subscriber = subscriber;
+}

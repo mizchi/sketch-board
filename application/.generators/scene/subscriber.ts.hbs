@@ -1,0 +1,6 @@
+export = subscriber;
+function subscriber(subscribe) {
+  subscribe('{{name}}:update', (context) => () => {
+    context.update({});
+  });
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# under app
+cd application
+npm install
+./node_modules/.bin/dtsm install
+./node_modules/.bin/gulp build
+
+cd ../shell
+npm install
+mkdir -p app
+cp -r ../application/lib          app/lib
+cp -r ../application/public       app/public
+cp -r ../application/browser      app/browser
+cp -r ../application/node_modules app/node_modules
+cp -r ../application/package.json app/package.json
+./node_modules/.bin/gulp build
+
+# TODO icon and app names

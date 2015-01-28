@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+cd shell
+gulp dev
+cd dev/v0.20.7/darwin-x64/Atom.app/Contents/Resources/
+rm -r app
+ln -s ../../../../../../../application app

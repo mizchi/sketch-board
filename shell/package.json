@@ -1,0 +1,15 @@
+{
+  "name": "application-builder",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.9",
+    "gulp-atom": "0.0.5"
+  }
+}
