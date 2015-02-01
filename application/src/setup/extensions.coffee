@@ -22,5 +22,5 @@ jQuery ->
 window.onunhandledrejection = (e) ->
   console.error e
 
-window.onerror = (e) ->
-  console.error e
+# window.onerror = (e) ->
+#   console.error e
