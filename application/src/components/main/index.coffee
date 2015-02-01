@@ -39,6 +39,20 @@ module.exports = React.createClass
   onClickSave: ->
     @saveHistory(@coffeeEditor.getValue(), @jadeEditor.getValue())
 
+  onClickClipboard: ->
+    require('clipboard').writeText """
+    #=========
+    # coffee
+    #=========
+    #{@coffeeEditor.getValue()}
+
+    #=========
+    # jade
+    #=========
+    #{@jadeEditor.getValue()}
+    """
+
+
   onClickHistory: (ev) ->
     index = parseInt ev.target.dataset.historyIndex
     @useHisotory(index)
@@ -78,6 +92,7 @@ module.exports = React.createClass
       theme: 'monokai'
       mode: 'coffeescript'
       tabMode: 'spaces'
+      lineNumbers: true
       indentUnit: 2
       tabSize: 2
       indentWithTabs: false
@@ -98,12 +113,24 @@ module.exports = React.createClass
     window.jadeEditor = @jadeEditor = createMyEditor jadeElement,
       theme: 'monokai'
       mode: 'jade'
+      tabMode: 'spaces'
+      lineNumbers: true
+      indentUnit: 2
+      tabSize: 2
+      indentWithTabs: false
       extraKeys:
         'Ctrl-Tab': ->
           focusCoffee()
+        'Cmd-S': ->
+          self.saveHistory(self.coffeeEditor.getValue(), self.jadeEditor.getValue())
         'Ctrl-R': ->
-          console.log 'update'
           self.update()
+        'Cmd-0': -> self.useHisotory(0)
+        'Cmd-1': -> self.useHisotory(1)
+        'Cmd-2': -> self.useHisotory(2)
+        'Cmd-3': -> self.useHisotory(3)
+        'Cmd-4': -> self.useHisotory(4)
+        'Cmd-5': -> self.useHisotory(5)
 
     @useHisotory(0)
     @update()
@@ -116,7 +143,10 @@ module.exports = React.createClass
       jadeEditor.setSize('100%', '600px')
       coffeeEditor.setSize('100%', '50px')
 
-    focusCoffee()
+    jadeEditor.on 'focus', -> focusJade()
+    coffeeEditor.on 'focus', -> focusCoffee()
+
+    focusJade()
 
   render: ->
     template _.extend {}, @, @props, @state
