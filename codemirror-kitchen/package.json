@@ -1,0 +1,28 @@
+{
+  "name": "codemirror-kitchen",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mizchi/codemirror-kitchen.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizchi/codemirror-kitchen"
+  },
+  "homepage": "https://github.com/mizchi/codemirror-kitchen",
+  "dependencies": {
+    "codemirror": "mizchi/CodeMirror",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.8.0",
+    "css-loader": "^0.9.0",
+    "extend": "^2.0.0",
+    "style-loader": "^0.8.2",
+    "webpack": "^1.4.13"
+  }
+}

@@ -1,0 +1,6 @@
+.CodeMirror {
+  -webkit-font-smoothing: antialiased;
+  font-size: 12pt;
+  font-family: "AtlasTypewriterRegular", "Andale Mono", "Consolas", "Lucida Console", "Menlo", "Luxi Mono", monospace;
+  font-style: normal;
+}
